@@ -1,4 +1,5 @@
 import logo from "./assets/logo.png"; 
+import { useState } from "react";
 import { FiHome } from "react-icons/fi";
 import { RiDashboardHorizontalLine } from "react-icons/ri";
 import { FaList } from "react-icons/fa";
@@ -8,6 +9,7 @@ import { IoSearch } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { CgProfile } from "react-icons/cg";
+import { PiListLight } from "react-icons/pi";
 import "./App.css";
 
 
@@ -33,6 +35,14 @@ function Navbar(){
     ]
 
 
+    const [showmenus,setShowMenus] = useState(false)
+
+   
+    const menuFunction = ()=>{
+        setShowMenus(!showmenus)
+    }
+
+
 return(
     <div className="nav-container">
 
@@ -41,13 +51,13 @@ return(
          <h4>T500</h4>
        </div>
 
-      <div className="nav-sub2">
+      <div className={showmenus ? "nav-sub2" : 'nav-sub2-close'} >
         {icons.map((ele)=>{
             return(
-                <>
+                <div className="nav-sub-icon">
                     <ele.icon/>
                     <div>{ele.name}</div>
-                </>
+                </div>
             )
         })}
       </div>
@@ -57,6 +67,9 @@ return(
         <IoSettingsOutline/>
         <IoMdNotificationsOutline/>
         <CgProfile/>
+      </div>
+      <div className="nav-close-icon" onClick={menuFunction}>
+         <PiListLight/>
       </div>
     </div>
  )

@@ -1,13 +1,34 @@
-import data from "./data.json"
+import { useEffect, useState } from "react"
+import records from "./data.json"
+import Pagination from "./Pagination";
   
 
 
   function GetData(){
 
-       console.log(data)
+    //    console.log(data)
+
+      const res = records.LeadDetails;
+
+       const [data,setData] = useState(res)
+       const [currentPage,setCurrentPage] = useState(1);
+       const [recordPerPage] = useState(10);
+
+      console.log(data)  
+
+
+      const indexOfLastRecord = currentPage * recordPerPage;
+      const indexOfFirstRecord = indexOfLastRecord - recordPerPage
+      const currentRecords = data.slice(indexOfFirstRecord,indexOfLastRecord)
       
+      const nPages = Math.ceil(data.length/recordPerPage);
+      
+      console.log(currentPage)
+      console.log(currentRecords)
+
        return(
-        <div className="data-container">
+        <>
+         <div className="data-container">
          
          <table>
             <tr>
@@ -22,7 +43,7 @@ import data from "./data.json"
 
         
 
-        {data.LeadDetails.map((ele,index)=>{
+        {currentRecords.map((ele,index)=>{
             return(
                 <tr key={index}>
                   <td>{index+1}</td>
@@ -38,6 +59,12 @@ import data from "./data.json"
 
          </table> 
         </div>
+        <Pagination 
+         nPages = {nPages}
+         currentPage ={currentPage}
+         setCurrentPage ={setCurrentPage}
+        />
+        </>
        )
   }
 
