@@ -129,7 +129,7 @@
 .main-option{
     display: flex;
     align-items: center;
-    background-color: aqua;
+    /* background-color: aqua; */
     width:fit-content;
     font-size: 17px;
 }
@@ -188,7 +188,8 @@ table,th,tr,td{
     border: 1px solid black;
     border-collapse: collapse;
     padding: 7px 60px;
-   
+    width: 90%;
+    margin: auto;
 }
 
 .pagination-container{
@@ -215,8 +216,6 @@ li:hover{
     background-color: black;
     color: white;
 }
-
-
 
 
 
@@ -254,10 +253,33 @@ li:hover{
         top: 25px;
     }
 
-    .nav-sub2-close{
+    #nav-sub2-close{
         display: none;
     }
 
+    .nav-sub3{
+        margin-top: 15px;
+    }
+
+
+    .Main-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .main-sub1{
+        justify-content: space-evenly;
+    }
+    
+
+    table,th,tr,td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding:5px;
+        width: 90%;
+        margin: auto;
+    }
     
     
 

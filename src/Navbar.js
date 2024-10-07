@@ -51,7 +51,7 @@ return(
          <h4>T500</h4>
        </div>
 
-      <div className={showmenus ? "nav-sub2" : 'nav-sub2-close'} >
+      <div className="nav-sub2" id={!showmenus ? "nav-sub2-close" : null}>
         {icons.map((ele)=>{
             return(
                 <div className="nav-sub-icon">
@@ -61,7 +61,7 @@ return(
             )
         })}
       </div>
-      <div className="nav-sub3">
+      <div className="nav-sub3" id={!showmenus ? "nav-sub2-close" : null}>
         <FaPlus/>
         <IoSearch/>
         <IoSettingsOutline/>
